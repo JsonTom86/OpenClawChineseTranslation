@@ -120,6 +120,10 @@ jobs:
           # 修改包名为汉化版
           jq '.name = "@qingchencloud/openclaw-zh"' package.json > tmp.json && mv tmp.json package.json
           jq '.description = "OpenClaw 汉化发行版 - 武汉晴辰天下网络科技有限公司"' package.json > tmp.json && mv tmp.json package.json
+          
+          # 使用我们的中文 README
+          cp ../README.md ./README.md
+          echo "✅ 已替换为中文 README"
 
       - name: 发布到 npm
         working-directory: openclaw
