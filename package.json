@@ -18,7 +18,7 @@
   "homepage": "https://openclaw.qt.cool/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1186258278/OpenClawChineseTranslation.git"
+    "url": "https://github.com/1186258278/OpenClawChineseTranslation"
   },
   "bugs": {
     "url": "https://github.com/1186258278/OpenClawChineseTranslation/issues"
