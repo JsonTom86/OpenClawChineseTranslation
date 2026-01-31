@@ -33,6 +33,16 @@
 
 ---
 
+## 📑 快速导航
+
+| 🚀 快速上手 | 📦 部署方式 | 🔧 使用维护 | 💡 帮助 |
+|:---:|:---:|:---:|:---:|
+| [什么是 OpenClaw](#-什么是-openclaw) | [一键安装](#-一键安装汉化版) | [快速开始](#-快速开始) | [常见问题](#-常见问题) |
+| [汉化效果预览](#-汉化效果预览) | [npm 安装](#方式-1-npm-安装) | [更新升级](#-更新升级) | [参与贡献](#-参与贡献) |
+| [汉化内容](#-汉化内容) | [Docker 部署](#-docker-部署指南) | [手动汉化安装](#-手动汉化安装) | [关于我们](#-关于我们) |
+
+---
+
 ## 🦞 什么是 OpenClaw？
 
 [OpenClaw](https://openclaw.ai/) 是由 Peter Steinberger ([@steipete](https://twitter.com/steipete)) 创建的**开源个人 AI 助手平台**，在 GitHub 上拥有超过 **100,000+ Stars**。
@@ -209,6 +219,73 @@ openclaw config             # 查看/修改配置
 openclaw skills             # 管理技能
 openclaw --help             # 查看帮助
 ```
+
+---
+
+## 🔄 更新升级
+
+已安装的 OpenClaw 汉化版如何升级？根据你的安装方式选择对应方法：
+
+### npm 安装用户
+
+```bash
+# 升级到最新稳定版
+npm update -g @qingchencloud/openclaw-zh
+
+# 或者重新安装指定版本
+npm install -g @qingchencloud/openclaw-zh@latest    # 稳定版
+npm install -g @qingchencloud/openclaw-zh@nightly   # 最新版
+```
+
+> 💡 **查看当前版本**: `openclaw --version`
+
+### Docker 用户
+
+```bash
+# 1. 拉取最新镜像
+docker pull ghcr.io/1186258278/openclaw-zh:nightly   # 最新版
+# 或
+docker pull ghcr.io/1186258278/openclaw-zh:latest    # 稳定版
+
+# 2. 停止并删除旧容器
+docker stop openclaw && docker rm openclaw
+
+# 3. 用新镜像启动（配置会自动保留，因为存储在数据卷中）
+docker run -d --name openclaw -p 18789:18789 \
+  -v openclaw-data:/root/.openclaw \
+  ghcr.io/1186258278/openclaw-zh:nightly openclaw gateway run
+```
+
+> 💡 **数据不会丢失**: 配置和数据存储在 `openclaw-data` 卷中，升级镜像不会影响。
+
+### Docker Compose 用户
+
+```bash
+# 1. 拉取最新镜像
+docker compose pull
+
+# 2. 重新创建容器
+docker compose up -d
+```
+
+### 一键安装脚本用户
+
+直接重新运行安装脚本即可，会自动升级到最新版：
+
+```bash
+# Linux/macOS
+curl -fsSL https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.sh | bash
+
+# Windows PowerShell
+npm install -g @qingchencloud/openclaw-zh@latest
+```
+
+### 版本对比
+
+| 版本类型 | npm 标签 | Docker 标签 | 更新频率 | 推荐场景 |
+|----------|----------|-------------|----------|----------|
+| **稳定版** | `@latest` | `:latest` | 手动发布 | 生产环境 |
+| **最新版** | `@nightly` | `:nightly` | 每小时自动 | 体验新功能 |
 
 ---
 
