@@ -577,6 +577,32 @@ docker stop openclaw && docker rm openclaw
 docker run --rm -v openclaw-data:/root/.openclaw alpine cat /root/.openclaw/openclaw.json
 ```
 
+### Docker 空间清理
+
+Docker 镜像和容器会占用大量磁盘空间，建议定期清理：
+
+```bash
+# 查看 Docker 空间占用
+docker system df
+
+# 清理已停止的容器
+docker container prune -f
+
+# 清理未使用的镜像
+docker image prune -f
+
+# 清理构建缓存
+docker builder prune -f
+
+# 一键清理所有未使用资源（镜像、容器、网络、缓存）
+docker system prune -a
+
+# 连同未使用的数据卷一起清理（⚠️ 会删除数据，谨慎使用）
+docker system prune -a --volumes
+```
+
+> 💡 **提示**：OpenClaw 镜像约 4GB，如果有多个旧版本镜像堆积，建议用 `docker image prune -a` 清理。
+
 ---
 
 <a id="manual"></a>
