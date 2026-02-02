@@ -165,15 +165,25 @@ def inject_panel():
     # 注入 JS 到主 JS 文件
     print("\n📜 注入 JS...")
     js_files = glob.glob(os.path.join(assets_dir, '*.js'))
+    # 排除 .map 文件
+    js_files = [f for f in js_files if not f.endswith('.map')]
     js_injected = False
+    inject_marker = '/* === OpenClaw 功能面板 === */'
     
     for js_file in js_files:
         filename = os.path.basename(js_file)
         # 寻找主 bundle（通常是 index-*.js）
         if 'index-' in filename or filename == 'index.js':
             content = read_file(js_file)
+            
+            # 检查是否已注入（防止重复）
+            if inject_marker in content:
+                print(f"  ⚠️ 已注入过，跳过: {filename}")
+                js_injected = True
+                break
+            
             # 追加 JS 到文件末尾
-            new_content = content + '\n\n/* === OpenClaw 功能面板 === */\n' + panel_js
+            new_content = content + f'\n\n{inject_marker}\n' + panel_js
             write_file(js_file, new_content)
             print(f"  ✅ JS 已注入: {filename}")
             js_injected = True
@@ -183,7 +193,11 @@ def inject_panel():
         # 如果没找到 index-*.js，尝试注入到任意 JS 文件
         for js_file in js_files:
             content = read_file(js_file)
-            new_content = content + '\n\n/* === OpenClaw 功能面板 === */\n' + panel_js
+            if inject_marker in content:
+                print(f"  ⚠️ 已注入过，跳过: {os.path.basename(js_file)}")
+                js_injected = True
+                break
+            new_content = content + f'\n\n{inject_marker}\n' + panel_js
             write_file(js_file, new_content)
             print(f"  ✅ JS 已注入: {os.path.basename(js_file)}")
             js_injected = True
