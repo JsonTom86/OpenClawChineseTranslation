@@ -188,6 +188,54 @@ yarn global add @qingchencloud/openclaw-zh@latest
 
 ---
 
+## 国内加速
+
+> 如果你在中国大陆，下载可能较慢，以下方案可以显著提速。
+
+<details>
+<summary><b>npm 安装加速</b></summary>
+
+```bash
+# 使用 npmmirror 镜像源（推荐）
+npm install -g @qingchencloud/openclaw-zh@latest --registry=https://registry.npmmirror.com
+
+# 或全局设置镜像源
+npm config set registry https://registry.npmmirror.com
+npm install -g @qingchencloud/openclaw-zh@latest
+```
+
+</details>
+
+<details>
+<summary><b>Docker 拉取加速</b></summary>
+
+```bash
+# Docker Hub 镜像（国内速度更快）
+docker pull qingchencloud/openclaw-zh:latest
+
+# GitHub Container Registry（默认）
+docker pull ghcr.io/1186258278/openclaw-zh:latest
+```
+
+> 如果 Docker Hub 也较慢，可以配置 Docker 镜像加速器（阿里云、DaoCloud 等）。
+
+</details>
+
+<details>
+<summary><b>Git 克隆加速</b></summary>
+
+```bash
+# 方案 1: 使用 GitHub 代理
+git clone https://ghproxy.net/https://github.com/1186258278/OpenClawChineseTranslation.git
+
+# 方案 2: 无需 git，直接用 npx 运行
+npx @qingchencloud/openclaw-zh@latest
+```
+
+</details>
+
+---
+
 ## 常见问题
 
 | 问题 | 快速解决 | 详细说明 |

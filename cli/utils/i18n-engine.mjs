@@ -61,7 +61,7 @@ export async function applyTranslation(translation, targetDir, options = {}) {
   const stats = {
     file: translation.file,
     description: translation.description,
-    total: Object.keys(translation.replacements).length,
+    total: Object.keys(translation.replacements).filter(k => !k.startsWith('__comment')).length,
     applied: 0,
     skipped: 0,
     notFound: 0
@@ -79,6 +79,9 @@ export async function applyTranslation(translation, targetDir, options = {}) {
   let modified = content;
   
   for (const [original, translated] of Object.entries(translation.replacements)) {
+    // 跳过注释键（如 __comment_page_header）
+    if (original.startsWith('__comment')) continue;
+
     if (modified.includes(translated)) {
       // 已经翻译过了
       stats.skipped++;
