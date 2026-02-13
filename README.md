@@ -128,7 +128,77 @@ openclaw dashboard          # 打开网页控制台
 openclaw config             # 查看/修改配置
 openclaw skills             # 管理技能
 openclaw --help             # 查看帮助
+
+# 网关管理
+openclaw gateway run        # 启动网关
+openclaw gateway stop       # 停止网关
+openclaw gateway restart   # 重启网关（停止后启动）
+openclaw gateway status    # 查看网关状态
+
+# 常用操作
+openclaw update            # 检查并更新 CLI
+openclaw doctor            # 诊断问题（自动修复）
 ```
+
+---
+
+## 网关重启
+
+```bash
+# 方式 1：使用 gateway 子命令（推荐）
+openclaw gateway restart
+
+# 方式 2：先停止再启动
+openclaw gateway stop
+openclaw gateway run
+
+# Docker 容器重启
+docker restart openclaw
+
+# 守护进程模式重启
+openclaw daemon restart
+```
+
+---
+
+## 卸载教程
+
+### CLI 卸载
+
+```bash
+# 卸载汉化版
+npm uninstall -g @qingchencloud/openclaw-zh
+
+# 如果之前安装过原版，也一并卸载
+npm uninstall -g openclaw
+```
+
+### 数据清理（可选）
+
+```bash
+# 删除配置和缓存（不可恢复！）
+rm -rf ~/.openclaw
+
+# Docker 清理
+docker rm -f openclaw                # 删除容器
+docker volume rm openclaw-data       # 删除数据卷
+```
+
+### 守护进程卸载
+
+```bash
+# macOS
+launchctl unload ~/Library/LaunchAgents/com.openclaw.plist
+rm ~/Library/LaunchAgents/com.openclaw.plist
+
+# Linux (systemd)
+sudo systemctl stop openclaw
+sudo systemctl disable openclaw
+sudo rm /etc/systemd/system/openclaw.service
+sudo systemctl daemon-reload
+```
+
+---
 
 ---
 
