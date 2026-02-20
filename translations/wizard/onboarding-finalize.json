@@ -80,16 +80,8 @@
 
     "\"Control UI\"": "\"控制面板\"",
     "\"Token\"": "\"令牌\"",
-    "\"Web search (optional)\"": "\"网页搜索（可选）\"",
-    "\"What now\"": "\"下一步\"",
     "\"Later\"": "\"稍后\"",
 
-    "\"Linux installs use a systemd user service by default. Without lingering, systemd stops the user session on logout/idle and kills the Gateway.\"": "\"Linux 安装默认使用 systemd 用户服务。如果没有启用 lingering，systemd 会在登出/空闲时停止用户会话并终止网关。\"",
-
-    "'What now: https://openclaw.ai/showcase (\"What People Are Building\").'": "'下一步：https://openclaw.ai/showcase（\"大家在做什么\"）。'",
-
-    "\"Onboarding complete. Dashboard opened; keep that tab to control OpenClaw.\"": "\"初始化完成。控制面板已打开，请保持该标签页以控制 OpenClaw。\"",
-    "\"Onboarding complete. Web UI seeded in the background; open it anytime with the dashboard link above.\"": "\"初始化完成。Web UI 已在后台初始化；随时可通过上方的面板链接打开。\"",
-    "\"Onboarding complete. Use the dashboard link above to control OpenClaw.\"": "\"初始化完成。请使用上方的面板链接控制 OpenClaw。\""
+    "\"Linux installs use a systemd user service by default. Without lingering, systemd stops the user session on logout/idle and kills the Gateway.\"": "\"Linux 安装默认使用 systemd 用户服务。如果没有启用 lingering，systemd 会在登出/空闲时停止用户会话并终止网关。\""
   }
 }
