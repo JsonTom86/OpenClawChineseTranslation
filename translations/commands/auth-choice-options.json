@@ -64,6 +64,7 @@
     "hint: \"Z.AI Global (api.z.ai)\"": "hint: \"Z.AI 国际版 (api.z.ai)\"",
     "label: \"CN\"": "label: \"国内版\"",
     "hint: \"Z.AI CN (open.bigmodel.cn)\"": "hint: \"Z.AI 国内版 (open.bigmodel.cn)\"",
-    "label: \"Z.AI API key\"": "label: \"Z.AI API 密钥\""
+    "label: \"Z.AI API key\"": "label: \"Z.AI API 密钥\"",
+    "label: \"Mistral API key\"": "label: \"Mistral API 密钥\""
   }
 }
