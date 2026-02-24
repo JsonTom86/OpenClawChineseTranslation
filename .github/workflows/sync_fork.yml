@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         with:
           ref: main  # 根据实际分支名修改
           
       - name: Sync fork with upstream
-        uses: aormsby/Fork-Sync-With-Upstream-action@v4  # 更新到最新版本
+        uses: aormsby/Fork-Sync-With-Upstream-action@v2  # 更新到最新版本
         with:
           upstream_remote_url: https://github.com/1186258278/OpenClawChineseTranslation.git
           target_branch: main  # 同步到目标分支
